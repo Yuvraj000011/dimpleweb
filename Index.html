@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHIVA PHOTOGRAPHY</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+   <nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">SHIVAVIDEOS</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="booking.html">Book Now</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <header class="banner">
+    <div class="banner-content">
+      <h1>SHIVA_VIDEOS</h1>
+      <a href="booking.html" class="book-btn">Book Now</a>
+    </div>
+  </header>
+  <hr class="section-divider">
+
+  <section class="gallery-section">
+    <h2 class="gallery-title">Gallery</h2>
+    <div class="gallery">
+      <!-- 24 Photos -->
+    </div>
+  </section>
+  
+
+  <hr class="separator">
+
+  <section class="about-contact">
+    <div class="about">
+      <h2>About Us</h2>
+      <p>Shiva is a passionate photographer capturing timeless moments. Specializing in weddings, portraits, and events across Canada.</p>
+    </div>
+  </section>
+
+  <hr class="separator">
+
+  <section class="about-contact">
+    <div class="contact">
+      <h2>Contact Us</h2>
+      <p>Email: shivaphotos@example.com<br>Phone: +1 647-123-4567</p>
+    </div>
+  </section>
+
+  <!-- Lightbox Preview -->
+  <div class="preview-box" id="previewBox">
+    <span id="closePreview">&times;</span>
+    <img src="" alt="preview" id="previewImg">
+  </div>
+
+ <script>
+  const gallery = document.querySelector(".gallery");
+  const previewBox = document.getElementById("previewBox");
+  const previewImg = document.getElementById("previewImg");
+
+  for (let i = 1; i <= 30; i++) {
+    const img = document.createElement("img");
+    img.src = `assets/images/photo${i}.jpg`;
+    img.alt = `photo${i}`;
+    img.addEventListener("click", () => {
+      previewImg.src = img.src;
+      previewBox.style.display = "flex";
+    });
+    gallery.appendChild(img);
+  }
+
+  // Close button
+  document.getElementById("closePreview").onclick = () => {
+    previewBox.style.display = "none";
+    previewImg.src = "";
+  };
+
+  // Click outside image closes preview
+  previewBox.addEventListener("click", (e) => {
+    if (e.target === previewBox) {
+      previewBox.style.display = "none";
+      previewImg.src = "";
+    }
+  });
+
+  // ESC key to close
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      previewBox.style.display = "none";
+      previewImg.src = "";
+    }
+  });
+</script>
+
+  <footer class="site-footer">
+  <p>All copyrights belong to SHIVA VIDEOS</p>
+</footer>
+
+</body>
+</html>
